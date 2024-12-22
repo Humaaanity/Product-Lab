@@ -38,36 +38,40 @@
 
 }
 .card_container  {
+    overflow-x: hidden;
     font-family: SFUIDisplay;
     margin-left: auto;
     margin-right: auto;
     width: 1360px !important;
     padding-top: 30px;
+    box-sizing: border-box;
     
 }
 
 .conditions {
-    display: flex;
+    margin-left: 100px;
+    display: flex !important;
+    flex-wrap: wrap !important;
     flex-direction: row;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    flex-wrap: wrap;
+    gap: 10px;
+    height: auto !important;
 }
-.conditions div{
-    margin-right: 10px;
-    display: flex;
-    flex-direction: row;
+.cond_item{
+    height: auto !important;
+    min-width: 200px !important;    
     align-items: center;
     border: 1px #ECECEC solid;
     border-radius: 110px;
     padding: 10px 20px;
 }
-.conditions img {
+.cond_item img {
+    max-width: 100%; /* Изображение не будет больше родителя */
+    height: auto;
     margin-right: 10px;
-    height: 100%;
-    width: auto;
 }
-.conditions span{
+.cond_item span{
     font-weight: 600;
     color: #18171B8C;
     font-size: 15px;
@@ -104,30 +108,39 @@
             object-fit: contain; 
 }
 .swiper-pagination {
-    position: absolute !important;
-    bottom: 20px !important;
-    left: 50% !important; 
-    transform: translateX(-50%) !important;
+    position: absolute;
+    bottom: 10px !important; /* Позиция пагинации от нижнего края */
+    left: 50%;
+    transform: translateX(80px) !important;
+    display: flex;
+    gap: 10px; /* Расстояние между точками */
     z-index: 10;
-}
-
-  .swiper-pagination-custom img {
-    opacity: 100%;
+  }
+  
+  .swiper-pagination .swiper-pagination-bullet {
+    width: 101px; /* Стандартный размер точки */
+    height: 101px;
+    border-radius: 10px; /* Округлые края */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #F4F4F4;
-    width: 100px; 
-    height: 100px; 
-    object-fit: scale-down; 
-    margin: 0 5px;
-    cursor: pointer;
-    transition: border 0.5s, opacity 500ms linear;
+    opacity: 100%
+  }
+  
+  .swiper-pagination .swiper-pagination-bullet img {
     border-radius: 10px;
-}
-
-.swiper-pagination-custom img.swiper-pagination-bullet-active {
-   border: 1px solid black;
-   opacity: 0.7;
-
-}
+    width: 100%;
+    height: 100%;
+    transition:opacity 500ms ease transform 0.3s ease, width 0.3s ease; /* Плавное изменение ширины */
+    display: flex;
+    object-fit: scale-down; /* Изображение будет заполнять точку */
+    display: block; /* Показываем изображения по умолчанию */
+  }
+  .swiper-pagination-bullet-active img{
+    border: 1px solid #121213;
+    opacity: 50%;
+  }
 
 .swiper-button-prev,
 .swiper-button-next {
@@ -369,12 +382,59 @@
     }
 
 }
-@media (max-width : 1024px){
+@media (max-width : 992px){
+    .swiper{
+        transform: scale(1.4);
+        margin-top: 80px;  
+    }
+    .card_container {
+        max-width: 992px;
+        padding-left: 40px;
+        top: 50%;
+        left: 50%
+    }
     .conditions{
-        flex-wrap: wrap;
+        max-width: 792px;
+        gap: 5px;
+        transform: translateX(60px);
+        
     }
     .product {
         flex-direction: column;
         align-items: center;
+    }
+    .swiper-button-prev img , .swiper-button-next img{
+    display: none;
+}
+.swiper-pagination .swiper-pagination-bullet img {
+    display: none ; /* Скрываем изображения */
+  }
+  .swiper-pagination .swiper-pagination-bullet {
+    width: 9px; /* Ширина картинки */
+    height: 9px; /* Высота картинки */
+    border-radius: 60px; /* Округлые края */
+    transform: translate(135px, -90px);
+    color: #18171B40;
+    background-color: #18171B40;
+    transition: width 600ms ease; /* Плавное изменение при наведении */
+    gap: 12px;
+  }
+  /* Увеличиваем активную точку */
+  .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    width: 30px;
+    background-color: #121213;
+  }
+}
+@media (max-width : 420px) {
+    .conditions{
+        max-width: 620px;
+        display: grid;
+        grid-template-columns: 2 !important;
+        grid-template-rows: 3 !important;
+        transform: translateX(70px);
+    }
+    .cond_item span{
+       font-size: 13px;
+       color: #121213; 
     }
 }
