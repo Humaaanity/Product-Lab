@@ -37,7 +37,8 @@
     font-style: normal;
 
 }
-.card_container  {
+
+.container  {
     overflow: hidden;
     font-family: SFUIDisplay;
     margin-left: auto;
@@ -125,7 +126,11 @@
     justify-content: center;
     align-items: center;
     background-color: #F4F4F4;
-    opacity: 100%
+    opacity: 100%;
+    background-size: contain;
+    background-position: center;
+    display: inline-block;
+    background-repeat: no-repeat
   }
   
   .swiper-pagination .swiper-pagination-bullet img {
@@ -137,7 +142,7 @@
     object-fit: scale-down; /* Изображение будет заполнять точку */
     display: block; /* Показываем изображения по умолчанию */
   }
-  .swiper-pagination-bullet-active img{
+  .swiper-pagination-bullet-active {
     border: 1px solid #121213;
     opacity: 50%;
   }
@@ -225,8 +230,12 @@
     height: 40px;
     width: 40px;
     border-radius: 50%;
-    border: 0;
+    border: 2px solid transparent;
     margin-right: 10px;
+    transition: padding 300ms ease-in-out;
+}
+.button_color.active{
+    transform: scale(0.9)
 }
 
 .color_1 {
@@ -422,6 +431,8 @@
 .button_memory.active {
     background-color: #121213;
     color: #FFFFFF;
+    border: 0 !important;
+    
 }
 .memories{
     display: flex;
@@ -430,11 +441,10 @@
 }
 .button_memory{
     transition: background 300ms ease, color 300ms;
-    
     margin-bottom: 7px;
     width: 100px;
     margin-right: 10px;
-    
+    border: 0 !important;
 }
 
 @media (max-width:1267px) {
@@ -491,7 +501,7 @@
 }
 @media (max-width : 992px){
    
-    .card_container{
+    .container{
         margin: auto;
     }
     .swiper{
@@ -548,8 +558,8 @@
     .swiper-button-prev img , .swiper-button-next img{
     display: none;
 }
-.swiper-pagination .swiper-pagination-bullet img {
-    display: none ; /* Скрываем изображения */
+.swiper-pagination .swiper-pagination-bullet {
+    background: #000 !important ; /* Скрываем изображения */
   }
   .swiper-pagination .swiper-pagination-bullet {
     width: 9px; /* Ширина картинки */
