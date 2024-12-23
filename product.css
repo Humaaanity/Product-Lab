@@ -38,11 +38,11 @@
 
 }
 .card_container  {
-    overflow-x: hidden;
+    overflow: hidden;
     font-family: SFUIDisplay;
     margin-left: auto;
     margin-right: auto;
-    width: 1360px !important;
+    width: 100% !important;
     padding-top: 30px;
     box-sizing: border-box;
     
@@ -195,6 +195,15 @@
     max-width: 370px;
 
 }
+.color_choice_2 {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;  
+}
+.color_choice_2 span{
+    margin-bottom: 20px !important;
+    font-size: 15px;
+}
 .color_choice span{
     position: relative;
     display: inline-block;
@@ -254,6 +263,15 @@
     height: 26px; /* Высота полоски */
     background-color:#1212131A;
     
+}
+.memory_choice_2 {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;  
+    align-items:start;
+}
+.memory_choice_2 span{
+    margin-bottom: 15px;
 }
 
 .button_memory{
@@ -336,7 +354,7 @@
 .shield_gray{
     margin-right: 3px;
 }
-.channels {
+.channel {
     display: flex;
     flex-direction: row;
     margin-top: 28px;
@@ -349,7 +367,7 @@
     font-weight: 500;
     border:0;
     border-radius:72px; ;
-    padding: 22px 45px;
+    padding: 22px 43px;
     text-align: center;
     margin-right: 5px;
     height: 62px;
@@ -372,36 +390,160 @@
     color: #18171B40;
     font-size: 13px;
     font-weight: 500;
-    text-align: center;
+    text-align: start;
     transform: translateX(28px);
 }
-@media (max-width:1200px) {
+.quest_price_2{
+    border-radius: 70px;
+    border: 1px solid #12121326 ;
+    padding: 28px 90px;
+    text-align: center;
+    max-width: 100%;
+}
+.quest_price_2 span{
+    color: #18171B8C;
+    font-size: 18px;
+    font-weight: 500;
+}
+.info_actual{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.info_actual{
+    color: #18171B40;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: start;
+}
+.info_2{
+    align-content: center;
+}
+.button_memory.active {
+    background-color: #121213;
+    color: #FFFFFF;
+}
+.memories{
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+.button_memory{
+    transition: background 300ms ease, color 300ms;
+    
+    margin-bottom: 7px;
+    width: 100px;
+    margin-right: 10px;
+    
+}
+
+@media (max-width:1267px) {
     .swiper{
     margin-right: 40px !important;
     margin-left: 60px !important;
     }
+    .price_stop{
+        padding: 10px 15px;
+    }
+    .price_stop span{
+        font-size: 36px;
+    }
+    .price_stop h5{
+        font-size: 11px;
+    }
+    .price_stop span{
+        font-size: 36px;
+    }
+    .price_always{
+        padding: 9.5px 15px;
+    }
+    .price_always h5{
+        font-size: 11px;
+    }
+    .price_always span{
+        font-size: 36px;
+    }
+    .button_buy{
+        padding: 27.5px 50px
+    }
+    .quest_price{
+        padding: 15px 35px ;
+    }
+    
+@media(max-width: 1024px) {
+    .swiper{
+        overflow: hidden;
+        z-index: 100;
+    }
+    .swiper-button-prev, .swiper-button-next{
+    display: none !important;
+}
+.swiper-pagination .swiper-pagination-bullet img{
+    transform: translateX(-70px);
+}
+.swiper-slide img{
+    object-fit: cover;
+    max-width: 600px;
+}
+    
+}
 
 }
 @media (max-width : 992px){
+   
+    .card_container{
+        margin: auto;
+    }
     .swiper{
         transform: scale(1.4);
         margin-top: 80px;  
     }
     .card_container {
         max-width: 992px;
-        padding-left: 40px;
         top: 50%;
         left: 50%
     }
     .conditions{
         max-width: 792px;
         gap: 5px;
-        transform: translateX(60px);
-        
+        margin-left: 100px;
+    }
+    .button_memory{
+        height: 60px;
     }
     .product {
         flex-direction: column;
         align-items: center;
+    }
+    .card_price{
+        width: 100%;
+        justify-content: space-around;
+    }
+    .price_always{
+        max-width: 250px !important;
+    }
+    .price_stop{
+        max-width: 450px;
+    }
+    .price_always{
+        margin-bottom: 13px;
+    }
+    .price_stop{
+        margin-bottom: 13px;
+    }
+    .button_buy_2{
+     width: 100%;
+     background-image: linear-gradient( #353536,#121213 );
+     color: #FFFFFF;
+     font-size: 20px;
+     font-weight: 500;
+     border:0;
+     border-radius:72px; ;
+     padding: 33.5px 70px;
+     transition: transform 300ms ease-in-out;
+     margin-bottom: 20px;
+     cursor: pointer;
+     margin-left: 0;
     }
     .swiper-button-prev img , .swiper-button-next img{
     display: none;
@@ -413,7 +555,7 @@
     width: 9px; /* Ширина картинки */
     height: 9px; /* Высота картинки */
     border-radius: 60px; /* Округлые края */
-    transform: translate(135px, -90px);
+    transform: translate(120px, -90px);
     color: #18171B40;
     background-color: #18171B40;
     transition: width 600ms ease; /* Плавное изменение при наведении */
@@ -424,6 +566,65 @@
     width: 30px;
     background-color: #121213;
   }
+  .choice_char{
+    margin-left: 19px;
+    margin-right: 19px;
+}
+}
+@media(max-width: 500px){
+    .conditions{
+        margin-left: 19px;
+        justify-content: start;
+    }
+    .swiper{
+        margin-top: 10px;   
+    transform: scale(0.9);
+    transform: translateX(-10px);
+    }
+    
+    .product{
+        margin-top: 0;
+    }
+    
+    .choice_char h2{
+        font-size: 32px;
+        
+    }
+    .card_price{
+        justify-content: center;
+    }
+    .price_stop span{
+        font-size: 30px;
+        line-height: 1;
+    }
+    .price_always span{
+        font-size: 30px;
+        line-height: 1;
+    }
+    .button_buy_2{
+        padding: 33.5px 0;
+        width: 370px;
+        margin-left: 2px;
+    }
+    .quest_price_2{
+        padding: 33.5px 0;
+        width: 370px;
+        margin-left: 2px;
+    }
+    .channel{
+        justify-content: center;
+        gap: 0;
+    }
+   .society {
+    padding-left: 45px;
+    padding-right: 45px;
+    margin-left: 5px;
+   }
+   .info_actual{
+    margin-left: 0px;
+        margin-right: 19px;
+   }
+    
 }
 @media (max-width : 420px) {
     .conditions{
@@ -433,8 +634,16 @@
         grid-template-rows: 3 !important;
         transform: translateX(70px);
     }
+    
     .cond_item span{
        font-size: 13px;
        color: #121213; 
+       padding-left: 0;
+       padding-right: 0;
+       margin-right: 0;
+       margin-left: 0;
+    }
+    .cond_item{
+        transform: translateX(-60px);
     }
 }

@@ -56,5 +56,40 @@ $(document).ready(function() {
   // Вызов функции при изменении размера окна
   $(window).resize(function() {
     checkWindowSize();
+    checkScreenWidth();
   });
+
+  // Функция для изменения содержимого в зависимости от ширины экрана
+  function checkScreenWidth() {
+    if ($(window).width() <= 992) {
+      // Если ширина экрана меньше или равна 992px, скрываем block1 и показываем block2
+      $('.color_choice').hide();
+      $('.color_choice_2').show();
+      $('.memory_choice').hide();
+      $('.memory_choice_2').show();
+      $('.info_1').hide();
+      $('.info_2').show();
+    } else {
+      // Если ширина экрана больше 992px, скрываем block2 и показываем block1
+      $('.color_choice').show();
+      $('.color_choice_2').hide();
+      $('.memory_choice').show();
+      $('.memory_choice_2').hide();
+      $('.info_1').show();
+      $('.info_2').hide();
+    }
+  }
+
+  // Вызываем функцию при загрузке страницы
+  checkScreenWidth();
+
+  // Обработчик для переключения классов активных кнопок
+  $('.memories .button_memory').on('click', function() {
+    // Убираем класс 'active' у всех кнопок
+    $('.memories .button_memory').removeClass('active');
+    
+    // Добавляем класс 'active' только на текущую кнопку
+    $(this).addClass('active');
+  });
+  
 });
